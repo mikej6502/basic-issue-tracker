@@ -19,5 +19,5 @@ steps:
     jdkArchitectureOption: 'x64'
     codeCoverageTool: 'JaCoCo' 
     publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    testResultsFiles: '**/site/jacoco/jacoco.xml'
     goals: 'package'
