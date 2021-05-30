@@ -6,6 +6,7 @@
 
 # IDE
 /**/.idea/*
+*.iml
 
 # Package Files #
 *.jar
