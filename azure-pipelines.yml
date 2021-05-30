@@ -19,5 +19,5 @@ steps:
     jdkArchitectureOption: 'x64'
     codeCoverageTool: 'JaCoCo' 
     publishJUnitResults: true
-    testResultsFiles: '**/site/jacoco/jacoco.xml'
+    testResultsFiles: '**/TEST-*.xml' 
     goals: 'package'
