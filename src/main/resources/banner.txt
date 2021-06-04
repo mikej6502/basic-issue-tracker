@@ -4,3 +4,4 @@
  / _  |/ /  / /   _\ \/ -_) __/ |/ / / __/ -_)
 /____/___/ /_/   /___/\__/_/  |___/_/\__/\__/
 
+BIT - Basic Issue Tracker - SpringBoot Service

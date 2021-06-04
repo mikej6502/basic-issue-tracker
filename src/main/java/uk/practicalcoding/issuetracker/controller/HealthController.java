@@ -11,6 +11,6 @@ public class HealthController
     @GetMapping("/healthcheck")
     public ResponseEntity<String> healthCheck()
     {
-        return new ResponseEntity<>("OK", HttpStatus.OK);
+        return new ResponseEntity<>( "OK", HttpStatus.OK );
     }
 }
