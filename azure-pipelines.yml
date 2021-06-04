@@ -40,3 +40,4 @@ steps:
     containerRegistry: $(dockerRegistryServiceConnection)
     tags: |
       $(tag)
+      latest
