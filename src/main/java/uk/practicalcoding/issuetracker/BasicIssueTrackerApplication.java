@@ -22,7 +22,9 @@ public class BasicIssueTrackerApplication
             @Override
             public void addCorsMappings( CorsRegistry registry )
             {
-                registry.addMapping( "/**" ).allowedOrigins( "https://bassic-issue-tracker-ui-staging.azurewebsites.net" );
+                registry.addMapping( "/**" ).
+                        allowedMethods( "PUT", "POST" ).
+                        allowedOrigins( "https://bassic-issue-tracker-ui-staging.azurewebsites.net" );
             }
         };
     }
