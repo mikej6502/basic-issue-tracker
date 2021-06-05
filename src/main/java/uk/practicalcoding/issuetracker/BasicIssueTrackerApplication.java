@@ -23,7 +23,7 @@ public class BasicIssueTrackerApplication
             public void addCorsMappings( CorsRegistry registry )
             {
                 registry.addMapping( "/**" ).
-                        allowedMethods( "PUT", "POST" ).
+                        allowedMethods( "GET", "PUT", "POST" ).
                         allowedOrigins( "https://bassic-issue-tracker-ui-staging.azurewebsites.net" );
             }
         };
