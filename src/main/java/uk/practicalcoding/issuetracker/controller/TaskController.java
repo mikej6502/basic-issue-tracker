@@ -18,9 +18,9 @@ public class TaskController
     TaskRepository taskRepository;
 
     @GetMapping("/task/{id}")
-    public Task getTask( @PathVariable(value = "id") long id )
+    public Task getTask( @PathVariable(value = "id") String id )
     {
-        return taskRepository.findById( id );
+        return taskRepository.findById( id ).get();
     }
 
     @GetMapping("/task")
@@ -41,7 +41,7 @@ public class TaskController
     }
 
     @PutMapping("/task/{id}")
-    Task replaceTask( @RequestBody Task newTask, @PathVariable Long id )
+    Task replaceTask( @RequestBody Task newTask, @PathVariable String id )
     {
         final Task updatedTask = taskRepository.findById( id )
                 .map( task ->

@@ -2,12 +2,12 @@ package uk.practicalcoding.issuetracker.repository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import uk.practicalcoding.issuetracker.model.Task;
 
-public interface TaskRepository extends PagingAndSortingRepository<Task, Long>
+public interface TaskRepository extends MongoRepository<Task, String>
 {
-    Task findById( long id );
+    Task findBy( String id );
 
     Page<Task> findAll( Pageable paging );
 }
