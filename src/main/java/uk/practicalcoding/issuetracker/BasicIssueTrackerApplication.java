@@ -27,6 +27,8 @@ public class BasicIssueTrackerApplication
             @Override
             public void addCorsMappings( CorsRegistry registry )
             {
+                System.out.println( "DBNAME: " + env.getProperty( "spring.data.mongodb.database" ) );
+
                 registry.addMapping( "/**" ).
                         allowedMethods( "GET", "PUT", "POST" ).
                         allowedOrigins( "https://bassic-issue-tracker-ui-staging.azurewebsites.net" );
