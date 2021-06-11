@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uk.practicalcoding.issuetracker.model.PageResponse;
 import uk.practicalcoding.issuetracker.model.Task;
 import uk.practicalcoding.issuetracker.repository.TaskRepository;
 
@@ -68,34 +69,5 @@ public class TaskController
                 } );
 
         return updatedTask;
-    }
-
-    private class PageResponse
-    {
-        private final long totalItems;
-        private final int currentPage;
-        private final int totalPages;
-
-        public PageResponse( Page page )
-        {
-            this.totalItems = page.getTotalElements();
-            this.currentPage = page.getNumber();
-            this.totalPages = page.getTotalPages();
-        }
-
-        public long getTotalItems()
-        {
-            return totalItems;
-        }
-
-        public int getCurrentPage()
-        {
-            return currentPage;
-        }
-
-        public int getTotalPages()
-        {
-            return totalPages;
-        }
     }
 }
