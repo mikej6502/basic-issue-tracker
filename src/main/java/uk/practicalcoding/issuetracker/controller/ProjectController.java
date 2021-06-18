@@ -21,6 +21,12 @@ public class ProjectController
     @Autowired
     ProjectRepository projectRepository;
 
+    @GetMapping("/project/{id}")
+    public Project getProject( @PathVariable(value = "id") String id )
+    {
+        return projectRepository.findById( id ).get();
+    }
+
     @GetMapping("/project")
     public ResponseEntity<Map<String, Object>> getTask( @RequestParam(defaultValue = "0") Integer pageNo,
                                                         @RequestParam(defaultValue = "5") Integer pageSize,
@@ -37,8 +43,30 @@ public class ProjectController
     }
 
     @PostMapping("/project")
-    public Project createTask( @RequestBody Project newProject )
+    public Project createProject( @RequestBody Project newProject )
     {
         return projectRepository.save( newProject );
+
+    }
+
+    @PutMapping("/project/{id}")
+    Project replaceTask( @RequestBody Project newProject, @PathVariable String id )
+    {
+        final Project updatedProject = projectRepository.findById( id )
+                .map( task ->
+                {
+                    task.setKey( newProject.getKey() );
+                    task.setTitle( newProject.getTitle() );
+                    task.setDescription( newProject.getDescription() );
+
+                    return projectRepository.save( task );
+                } )
+                .orElseGet( () ->
+                {
+                    newProject.setId( id );
+                    return projectRepository.save( newProject );
+                } );
+
+        return updatedProject;
     }
 }
