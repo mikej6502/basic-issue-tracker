@@ -1,20 +1,27 @@
 pipeline {
+    agent any
+    tools {
+        maven 'MAVEN'
+    }
     stages {
-        stage('Cleanup Workspace') {
+        stage ('Initialize') {
             steps {
-                cleanWs()
-                sh """
-                echo "Cleaned Up Workspace For Project"
-                """
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
             }
         }
 
-        stage(' Unit Testing') {
+        stage ('Build') {
             steps {
-                sh """
-                echo "Running Unit Tests"
-                """
+                sh 'mvn -Dmaven.test.failure.ignore=true clean install' 
+            }
+            post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml' 
+                }
             }
         }
-    }   
+    }
 }
