@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 public class BasicIssueTrackerApplication
 {
-    public static void main( String[] args )
+    public static void main( final String[] args )
     {
         SpringApplication.run( BasicIssueTrackerApplication.class, args );
     }
