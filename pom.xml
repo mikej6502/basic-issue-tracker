@@ -14,7 +14,7 @@
     <name>basic-issue-tracker</name>
     <description>A Basic Issue Tracking System (for learning purposes)</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
